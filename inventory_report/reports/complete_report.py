@@ -22,5 +22,4 @@ class CompleteReport(SimpleReport):
         products_list = Counter(products_list).most_common()
         for company, product in products_list:
             dicilist += f'- {company}: {product}\n'
-      
         return dicilist
