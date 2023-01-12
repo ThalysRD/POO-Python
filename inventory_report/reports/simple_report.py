@@ -11,6 +11,7 @@ class SimpleReport:
         expiration_date = SimpleReport.expiration(report)
         creation_date = SimpleReport.creation(report)
         enterprise = SimpleReport.more_products(report)
+        print(enterprise)
         message = (
             f"Data de fabricação mais antiga: {creation_date}\n"
             f"Data de validade mais próxima: {expiration_date}\n"
@@ -37,10 +38,12 @@ class SimpleReport:
 
     def more_products(report):
         companys = []
-        enterprise = ''
+        products = ''
+        result = ''
         for company in report:
             companys.append(company['nome_da_empresa'])
-        enterprise = str(Counter(companys).most_common(1)[0])
-        company = enterprise.replace("(", "").replace(")", "").replace("'", "")
-        company = company.replace(', 2', '')
-        return company
+        enterprise = Counter(companys).most_common(1)
+        for company, product in enterprise:
+            result = f'{company}'
+            products += f'{product}'
+        return result
