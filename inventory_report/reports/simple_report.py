@@ -11,7 +11,6 @@ class SimpleReport:
         expiration_date = SimpleReport.expiration(report)
         creation_date = SimpleReport.creation(report)
         enterprise = SimpleReport.more_products(report)
-        print(enterprise)
         message = (
             f"Data de fabricação mais antiga: {creation_date}\n"
             f"Data de validade mais próxima: {expiration_date}\n"
