@@ -2,7 +2,7 @@ from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
 import csv
 import json
-# import xml
+import xmltodict
 
 
 class Inventory:
@@ -41,5 +41,8 @@ class Inventory:
         return infos
 
     def generate_xml(path):
-        # infos = []
-        pass
+        infos = []
+        with open(path, 'r') as file:
+            reports = xmltodict.parse(file.read())
+            infos = reports['dataset']['record']
+        return infos
